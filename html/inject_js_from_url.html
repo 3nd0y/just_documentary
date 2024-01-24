@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Inject JS</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    console.log("Tes");
+    // var script = document.createElement('script');
+    // script.setAttribute('src','//cdn.shopify.com/s/files/1/0561/6726/8513/t/1/assets/hello.js?v=17694146303704268990');
+    // document.head.appendChild(script);
+    // // console.log(script)
+    // // waits until the page is fully loaded before calling or copying functions
+    // // window.onload = function() {
+    // //   var test = {
+    // //     'say_hi': window.say_hi
+    // //   };
+    // //   test.say_hi();
+    // // };
+    // window.onload = ()=>{
+    //   console.log(window.say_hi);
+    // }
+    var script = document.createElement('script');
+    script.setAttribute('src', '//localhost:8080/quest.js');
+    document.head.appendChild(script);
+    window.onload = () => { console.log(window.get_data()) }
+        (() => { var script = document.createElement('script');
+            script.setAttribute('src', '//localhost:8080/quest.js');
+            document.head.appendChild(script);
+            window.onload = () => { console.log(window.get_data()) } })()
+    </script>
+</body>
+
+</html>
